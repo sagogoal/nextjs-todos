@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import supabase from '../utils/supabase';
 
 export const useAddTodo = () => {
-    const [todo, setTodo] = useState([]);
+    const [todo, setTodo] = useState<Object>();
+    console.log("useAddTodo: " + todo)
 
     useEffect(() => {
         fetchTodos()
@@ -10,7 +11,8 @@ export const useAddTodo = () => {
 
     const fetchTodos = async () => {
         const data : any = await supabase.from('todos').select('*');
-        setTodo(data.body)
+        console.log("useAddTodo data: " + data.data)
+        setTodo(data.data)
     }
 
     return {todo, fetchTodos}

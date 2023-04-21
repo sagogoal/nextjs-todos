@@ -3,6 +3,7 @@ import { useAddTodo } from '../Hooks/useAddTodo';
 
 export const TodoList : React.FC= () => {
     const {todo} = useAddTodo()
+    console.log('%o', todo);
 
     return (
     <>
